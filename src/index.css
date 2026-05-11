@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --theme-primary: #ec4899;
+  --theme-secondary: #fce7f3;
+  --theme-background: #fff7fb;
+  --theme-text: #3b1f2b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--theme-background);
+  color: var(--theme-text);
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Theme utility classes */
+.theme-primary-bg {
+  background-color: var(--theme-primary);
+}
+
+.theme-primary-text {
+  color: var(--theme-primary);
+}
+
+.theme-secondary-bg {
+  background-color: var(--theme-secondary);
+}
+
+.theme-text {
+  color: var(--theme-text);
+}
+
+.theme-border {
+  border-color: var(--theme-primary);
+}
+
+.theme-shadow {
+  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.18);
+}
+
+/* Particle background animation */
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.8;
+  }
+
+  85% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-110vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.particle-float {
+  animation-name: particleFloat;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Soft floating animation */
+@keyframes softFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.soft-float {
+  animation: softFloat 4s ease-in-out infinite;
+}
+
+/* Hide scrollbar but keep scroll behavior clean if needed */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Better media rendering */
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* Selection colour */
+::selection {
+  background: var(--theme-secondary);
+  color: var(--theme-text);
+}
